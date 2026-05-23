@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
 import { ArrowLeft, Zap } from "lucide-react";
 import { Link } from "react-router";
-import logoImage from "figma:asset/0464351365b70cc194be9dae29faa1f34d01cb17.png";
-import backgroundImage from "figma:asset/da69969b543d1767b57d1613f749b134a9851b7a.png";
+import logoImage from "../../imports/logo3d.png";
+import backgroundImage from "../../imports/zanini.png";
 import portfolio2 from "../../imports/garrafaTermica.jpeg";
 import portfolio6 from "../../imports/coqueteleira.jpeg";
 import portfolio9 from "../../imports/garrafa1.jpg";
