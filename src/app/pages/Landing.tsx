@@ -122,7 +122,7 @@ export function Landing() {
             </div>
             <div className="flex items-center gap-8">
               <a href="#servicos" className="text-sm hover:text-red-500 transition-colors">Serviços</a>
-              <a href="#portfolio" className="text-sm hover:text-red-500 transition-colors">Portfolio</a>
+              <a href="#portfolio" className="text-sm hover:text-red-500 transition-colors">Catálogo</a>
               <a href="#sobre" className="text-sm hover:text-red-500 transition-colors">Sobre</a>
               <a
                 href="https://wa.me/5567998681141?text=Olá,%20vim%20pelo%20site%20e%20quero%20um%20orçamento"
@@ -168,7 +168,7 @@ export function Landing() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="/public/catalogo-zanini-laser.pdf"
+                  href="/public/assets/catalogo-zanini-laser.pdf"
                   download="Catalogo-Zanini-Laser.pdf"
                   className="group px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 rounded-lg transition-all flex items-center justify-center gap-2 shadow-2xl shadow-red-600/40"
                 >
