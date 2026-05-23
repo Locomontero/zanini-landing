@@ -5,6 +5,8 @@ import logoImage from "figma:asset/0464351365b70cc194be9dae29faa1f34d01cb17.png"
 import backgroundImage from "figma:asset/da69969b543d1767b57d1613f749b134a9851b7a.png";
 import portfolio2 from "../../imports/garrafaTermica.jpeg";
 import portfolio6 from "../../imports/coqueteleira.jpeg";
+import portfolio9 from "../../imports/garrafa1.jpg";
+import portfolio10 from "../../imports/garrafa2.jpg";
 
 export function Garrafas() {
   const garrafasGallery = [
@@ -17,6 +19,16 @@ export function Garrafas() {
       url: portfolio6,
       title: "Coqueteleira Exclusivas",
       description: "Coqueteleira exclusivas com gravação delicada",
+    },
+    {
+      url: portfolio9,
+      title: "Coqueteleira Exclusivas",
+      description: "Coqueteleira exclusivas com gravação delicada",
+    },
+    {
+      url: portfolio10,
+      title: "Coqueteleira Exclusivas",
+      description: "Escolha sua logo e tenha garrafas exclusivas",
     },
   ];
 

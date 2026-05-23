@@ -7,8 +7,15 @@ import portfolio1 from "../../imports/copoTermico500.jpeg";
 import portfolio2 from "../../imports/garrafaTermica.jpeg";
 import portfolio3 from "../../imports/copoOvo.jpeg";
 import portfolio4 from "../../imports/caneca.jpeg";
-import portfolio5 from "../../imports/copoOvo2.jpeg";
+import portfolio5 from "../../imports/chaveiro.png";
 import portfolio6 from "../../imports/coqueteleira.jpeg";
+import portfolio7 from "../../imports/copo1.jpg";
+import portfolio8 from "../../imports/copo2.jpg";
+import portfolio9 from "../../imports/garrafa1.jpg";
+import portfolio10 from "../../imports/garrafa2.jpg";
+import portfolio11 from "../../imports/brinde1.jpg";
+import portfolio12 from "../../imports/brinde2.jpg";
+import portfolio13 from "../../imports/copoOvo2.jpeg";
 
 export function Landing() {
   const services = [

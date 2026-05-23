@@ -6,6 +6,9 @@ import backgroundImage from "figma:asset/da69969b543d1767b57d1613f749b134a9851b7
 import portfolio1 from "../../imports/copoTermico500.jpeg";
 import portfolio3 from "../../imports/copoOvo.jpeg";
 import portfolio4 from "../../imports/caneca.jpeg";
+import portfolio7 from "../../imports/copo1.jpg";
+import portfolio8 from "../../imports/copo2.jpg";
+import portfolio13 from "../../imports/copoOvo2.jpeg";
 
 export function Copos() {
   const coposGallery = [
@@ -16,13 +19,28 @@ export function Copos() {
     },
     {
       url: portfolio3,
-      title: "Copos Sonic Personalizados",
+      title: "Copos Festas Personalizados",
       description: "Copos temáticos para festas infantis",
     },
     {
       url: portfolio4,
       title: "Canecas Corporativas",
       description: "Canecas com logo empresarial",
+    },
+    {
+      url: portfolio7,
+      title: "Canecas Corporativas",
+      description: "Canecas com logo empresarial",
+    },
+    {
+      url: portfolio8,
+      title: "Canecas Corporativas",
+      description: "Coloque sua logo empresarial",
+    },
+    {
+      url: portfolio13,
+      title: "Canecas Militares",
+      description: "Coloque sua logo tática",
     },
   ];
 

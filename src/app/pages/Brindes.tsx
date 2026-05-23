@@ -3,14 +3,26 @@ import { ArrowLeft, Zap } from "lucide-react";
 import { Link } from "react-router";
 import logoImage from "figma:asset/0464351365b70cc194be9dae29faa1f34d01cb17.png";
 import backgroundImage from "figma:asset/da69969b543d1767b57d1613f749b134a9851b7a.png";
-import portfolio5 from "../../imports/copoOvo2.jpeg";
+import portfolio5 from "../../imports/chaveiro.png";
+import portfolio11 from "../../imports/brinde1.jpg";
+import portfolio12 from "../../imports/brinde2.jpg";
 
 export function Brindes() {
   const brindesGallery = [
     {
       url: portfolio5,
-      title: "Canecas Força Tática",
+      title: "Chaveiros personalizados",
       description: "Brinde corporativo personalizado",
+    },
+    {
+      url: portfolio11,
+      title: "Garrafa padrinho personalizados",
+      description: "Brinde casamento personalizado",
+    },
+    {
+      url: portfolio12,
+      title: "Canetas brinde personalizados",
+      description: "Coloque sua logo aqui",
     },
   ];
 
