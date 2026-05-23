@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
 import { Zap, Award, Clock, Star, ArrowRight, Sparkles, Phone, Mail, MapPin } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-import logoImage from "figma:asset/logo3d.png";
-import backgroundImage from "figma:asset/da69969b543d1767b57d1613f749b134a9851b7a.png";
+import logoImage from "../../imports/logo3d.png";
+import backgroundImage from "../../imports/zanini.png";
 import portfolio1 from "../../imports/copoTermico500.jpeg";
 import portfolio2 from "../../imports/garrafaTermica.jpeg";
 import portfolio3 from "../../imports/copoOvo.jpeg";
