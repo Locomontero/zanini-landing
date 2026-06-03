@@ -1,5 +1,8 @@
 import { motion } from "motion/react";
-import { Zap, Award, Clock, Star, ArrowRight, Sparkles, Phone, Mail, MapPin } from "lucide-react";
+import {
+  Zap, Award, Clock, Star, ArrowRight, Sparkles, Phone, Mail, MapPin,
+  Instagram, Facebook, Youtube, Linkedin
+} from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import logoImage from "../../imports/logo3d.png";
 import backgroundImage from "../../imports/zanini.png";
@@ -168,11 +171,14 @@ export function Landing() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="/public/assets/catalogo-zanini-laser.pdf"
-                  download="Catalogo-Zanini-Laser.pdf"
+                  //href="/catalogo.html"  catalodo novo em construcao!!!
+                  href="/catalogo-zanini-laser.pdf"
+                  download="catalogo-zanini-laser.pdf"
+                  target="_blank"  
+                  rel="noopener noreferrer"  
                   className="group px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 rounded-lg transition-all flex items-center justify-center gap-2 shadow-2xl shadow-red-600/40"
                 >
-                  <span className="font-semibold">Baixar Catálogo PDF</span>
+                  <span className="font-semibold">Abrir Catálogo Completo</span>  {/* ← Mude o texto */}
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <a
@@ -338,7 +344,7 @@ export function Landing() {
               </p>
 
               <motion.a
-                href="/public/catalogo-zanini-laser.pdf"
+                href="/catalogo-zanini-laser.pdf"
                 download="catalogo-zanini-laser.pdf"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -349,7 +355,7 @@ export function Landing() {
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                <span className="text-lg font-black">Baixar Catálogo Completo (PDF)</span>
+                <span className="text-lg font-black">Baixe nosso catalogo em PDF</span>
               </motion.a>
             </motion.div>
 
@@ -378,6 +384,7 @@ export function Landing() {
                 >
                   <div className="aspect-square overflow-hidden">
                     <img
+                      loading="lazy"
                       src={category.image}
                       alt={category.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -518,38 +525,59 @@ export function Landing() {
 
         {/* Footer */}
         <footer className="py-12 px-8 border-t border-slate-700/50 bg-slate-900/40 backdrop-blur-sm">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-              <div className="flex items-center gap-3">
-                <img src={logoImage} alt="Zanini Laser" className="h-10 w-auto" />
-              </div>
-
-              <div className="flex gap-8">
-                <a href="#servicos" className="text-sm text-neutral-400 hover:text-red-500 transition-colors">
-                  Serviços
-                </a>
-
-                <a href="#portfolio" className="text-sm text-neutral-400 hover:text-red-500 transition-colors">
-                  Portfolio
-                </a>
-
-                <a href="#sobre" className="text-sm text-neutral-400 hover:text-red-500 transition-colors">
-                  Sobre
-                </a>
-
-                <a
-                  href="https://wa.me/5567998681141"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-neutral-400 hover:text-red-500 transition-colors"
-                >
-                  Contato
-                </a>
-              </div>
-
-              <div className="text-sm text-neutral-500">
-                © 2022 Zanini Laser. Todos os direitos reservados.
-              </div>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex items-center gap-3">
+              <img src={logoImage} alt="Zanini Laser" className="h-10 w-auto" />
+            </div>
+            <div className="flex flex-wrap justify-center gap-8">
+              <a href="#servicos" className="text-sm text-neutral-400 hover:text-red-500 transition-colors">
+                Serviços
+              </a>
+              <a href="#portfolio" className="text-sm text-neutral-400 hover:text-red-500 transition-colors">
+                Catálogo
+              </a>
+              <a href="#sobre" className="text-sm text-neutral-400 hover:text-red-500 transition-colors">
+                Sobre
+              </a>
+              <a href="#contato" className="text-sm text-neutral-400 hover:text-red-500 transition-colors">
+                Contato
+              </a>
+            </div>
+            {/* Redes Sociais */}
+            <div className="flex gap-4">
+              <a
+                href="https://instagram.com/zanini.laser"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-slate-800/80 hover:bg-red-600 rounded-full flex items-center justify-center transition-all hover:scale-110"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="https://facebook.com/zaninilaser"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-slate-800/80 hover:bg-red-600 rounded-full flex items-center justify-center transition-all hover:scale-110"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              {/* Opcional - mais redes */}
+              {/* 
+            <a
+              href="https://youtube.com/@zaninilaser"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 bg-slate-800/80 hover:bg-red-600 rounded-full flex items-center justify-center transition-all hover:scale-110"
+              aria-label="YouTube"
+            >
+              <Youtube className="w-5 h-5" />
+            </a>
+            */}
+            </div>
+            <div className="text-sm text-neutral-500">
+              © {new Date().getFullYear()} Zanini Laser. Todos os direitos reservados.
             </div>
           </div>
         </footer>

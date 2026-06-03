@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo Zanini Laser - Produtos Personalizados</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #0a0a0a;
+      color: #e5e5e5;
+      line-height: 1.5;
+    }
+
+    /* Header do Catálogo */
+    .catalog-header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+      border-bottom: 3px solid #dc2626;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    .catalog-header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff 0%, #dc2626 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .catalog-header p {
+      color: #9ca3af;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .company-info {
+      margin-top: 1.5rem;
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+
+    /* Navegação por categorias */
+    .category-nav {
+      background: #111827;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #374151;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .category-nav a {
+      display: inline-block;
+      color: #9ca3af;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      margin: 0 0.25rem;
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      transition: all 0.3s;
+    }
+
+    .category-nav a:hover {
+      background: #dc2626;
+      color: white;
+    }
+
+    /* Container principal */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Seções */
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      border-left: 4px solid #dc2626;
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+
+    /* Grid de produtos - MELHORADO */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Card do produto - VISUAL MODERNO */
+    .product-card {
+      background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid #374151;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.5);
+      border-color: #dc2626;
+    }
+
+    /* Placeholder para imagem - VOCÊ ADICIONA AS FOTOS AQUI */
+    .product-image {
+      background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6b7280;
+      font-size: 0.875rem;
+      position: relative;
+    }
+
+    .product-image::before {
+      content: "📷";
+      font-size: 3rem;
+      opacity: 0.3;
+    }
+
+    /* Badge de destaque */
+    .product-badge {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      background: #dc2626;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 2rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    .product-info {
+      padding: 1.25rem;
+    }
+
+    .product-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-description {
+      color: #9ca3af;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+
+    /* Especificações técnicas - MAIS ORGANIZADAS */
+    .specs {
+      background: #0f172a;
+      border-radius: 0.5rem;
+      padding: 0.75rem;
+      margin: 0.75rem 0;
+    }
+
+    .specs-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #dc2626;
+      margin-bottom: 0.5rem;
+    }
+
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      font-size: 0.75rem;
+    }
+
+    .spec-item {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .spec-label {
+      color: #6b7280;
+    }
+
+    .spec-value {
+      color: #e5e5e5;
+      font-weight: 500;
+    }
+
+    .engraving-area {
+      background: #dc2626/10;
+      border: 1px dashed #dc2626/30;
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      margin-top: 0.75rem;
+      font-size: 0.75rem;
+      text-align: center;
+    }
+
+    .engraving-area span {
+      color: #dc2626;
+      font-weight: 600;
+    }
+
+    /* Botão de orçamento */
+    .quote-btn {
+      display: inline-block;
+      width: 100%;
+      background: #dc2626;
+      color: white;
+      text-align: center;
+      padding: 0.625rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      transition: background 0.3s;
+    }
+
+    .quote-btn:hover {
+      background: #b91c1c;
+    }
+
+    /* Footer do catálogo */
+    .catalog-footer {
+      background: #111827;
+      margin-top: 3rem;
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid #374151;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #25d366;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    /* Responsivo */
+    @media (max-width: 640px) {
+      .container {
+        padding: 1rem;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 1.25rem;
+      }
+    }
+
+    @media print {
+
+      .category-nav,
+      .quote-btn,
+      .whatsapp-btn,
+      .catalog-footer .whatsapp-btn {
+        display: none;
+      }
+
+      .product-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="catalog-header">
+    <h1>⚡ ZANINI LASER</h1>
+    <p>Catálogo de Produtos para Personalização - Gravação a Laser de Alta Precisão</p>
+    <div class="company-info">
+      CNPJ: 43.477.525/0001-25<br>
+      Rua Professor Mauro Procópio da Silva, 939 - Itapoã, Ivinhema-MS | CEP: 79.740-000
+    </div>
+  </div>
+
+  <div class="category-nav">
+    <a href="#copos">🥤 Copos Térmicos</a>
+    <a href="#canecas">☕ Canecas</a>
+    <a href="#garrafas">🧴 Garrafas Térmicas</a>
+    <a href="#kits">🎁 Kits Especiais</a>
+    <a href="#brindes">✒️ Brindes Corporativos</a>
+    <a href="#churrasco">🥩 Churrasco</a>
+    <a href="#diversos">🔧 Diversos</a>
+  </div>
+
+  <div class="container">
+    <!-- ==================== COPOS TÉRMICOS ==================== -->
+    <section id="copos" class="section">
+      <h2 class="section-title">🥤 Copos Térmicos</h2>
+      <div class="products-grid">
+
+        <!-- Produto 1 - Copo 400ml -->
+        <div class="product-card">
+          <div class="product-image">
+            <span class="product-badge">Mais Vendido</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Copo Térmico 400ml</h3>
+            <p class="product-description">Copo multiuso com parede dupla em inox. Pode ser usado como copo, porta long
+              neck ou porta lata. Possui abridor de garrafa na parte inferior.</p>
+            <div class="specs">
+              <div class="specs-title">📏 Especificações</div>
+              <div class="specs-grid">
+                <div class="spec-item"><span class="spec-label">Altura:</span><span class="spec-value">15,8 cm</span>
+                </div>
+                <div class="spec-item"><span class="spec-label">Largura:</span><span class="spec-value">7,9 cm</span>
+                </div>
+                <div class="spec-item"><span class="spec-label">Circunferência:</span><span class="spec-value">25,3
+                    cm</span></div>
+                <div class="spec-item"><span class="spec-label">Peso:</span><span class="spec-value">244g</span></div>
+              </div>
+            </div>
+            <div class="engraving-area">
+              🎯 Área para gravação: <span>7,3 cm x 2,5 cm</span>
+            </div>
+            <a href="https://wa.me/5567998681141?text=Olá! Gostaria de um orçamento para o Copo Térmico 400ml"
+              target="_blank" class="quote-btn">📲 Solicitar Orçamento</a>
+          </div>
+        </div>
+
+        <!-- Produto 2 - Copo 350ml -->
+        <div class="product-card">
+          <div class="product-image"></div>
+          <div class="product-info">
+            <h3 class="product-title">Copo Térmico 350ml</h3>
+            <p class="product-description">Copo em inox com parede dupla e tampa plástica livre de BPA com bocal para
+              consumo rápido e prático.</p>
+            <div class="specs">
+              <div class="specs-title">📏 Especificações</div>
+              <div class="specs-grid">
+                <div class="spec-item"><span class="spec-label">Altura:</span><span class="spec-value">11,7 cm</span>
+                </div>
+                <div class="spec-item"><span class="spec-label">Largura:</span><span class="spec-value">8,7 cm</span>
+                </div>
+                <div class="spec-item"><span class="spec-label">Circunferência:</span><span class="spec-value">27,7
+                    cm</span></div>
+                <div class="spec-item"><span class="spec-label">Peso:</span><span class="spec-value">173g</span></div>
+              </div>
+            </div>
+            <div class="engraving-area">
+              🎯 Área para gravação: <span>4 cm x 5 cm</span>
+            </div>
+            <a href="https://wa.me/5567998681141?text=Olá! Gostaria de um orçamento para o Copo Térmico 350ml"
+              target="_blank" class="quote-btn">📲 Solicitar Orçamento</a>
+          </div>
+        </div>
+
+        <!-- Produto 3 - Copo 473ml com SOM -->
+        <div class="product-card">
+          <div class="product-image">
+            <span class="product-badge">🎵 Bluetooth</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Copo Térmico 473ml com Caixa de Som</h3>
+            <p class="product-description">Copo de inox com caixa de som Bluetooth integrada. Tampa com abridor.
+              Acompanha cabo USB-C. (Som não é à prova d'água).</p>
+            <div class="specs">
+              <div class="specs-title">📏 Especificações</div>
+              <div class="specs-grid">
+                <div class="spec-item"><span class="spec-label">Altura:</span><span class="spec-value">17,6 cm</span>
+                </div>
+                <div class="spec-item"><span class="spec-label">Largura:</span><span class="spec-value">9,5 cm</span>
+                </div>
+                <div class="spec-item"><span class="spec-label">Circunferência:</span><span class="spec-value">28,6
+                    cm</span></div>
+                <div class="spec-item"><span class="spec-label">Peso:</span><span class="spec-value">358g</span></div>
+              </div>
+            </div>
+            <div class="engraving-area">
+              🎯 Área para gravação: <span>11 cm x 3 cm</span>
+            </div>
+            <a href="https://wa.me/5567998681141?text=Olá! Gostaria de um orçamento para o Copo Térmico com Som"
+              target="_blank" class="quote-btn">📲 Solicitar Orçamento</a>
+          </div>
+        </div>
+
+        <!-- Produto 4 - Copo 473ml liso -->
+        <div class="product-card">
+          <div class="product-image"></div>
+          <div class="product-info">
+            <h3 class="product-title">Copo Térmico 473ml</h3>
+            <p class="product-description">Copo de inox com acabamento liso, material livre de BPA. Tampa com abridor.
+            </p>
+            <div class="specs">
+              <div class="specs-title">📏 Especificações</div>
+              <div class="specs-grid">
+                <div class="spec-item"><span class="spec-label">Altura:</span><span class="spec-value">17,1 cm</span>
+                </div>
+                <div class="spec-item"><span class="spec-label">Largura:</span><span class="spec-value">9,1 cm</span>
+                </div>
+                <div class="spec-item"><span class="spec-label">Circunferência:</span><span class="spec-value">29,3
+                    cm</span></div>
+                <div class="spec-item"><span class="spec-label">Peso:</span><span class="spec-value">268g</span></div>
+              </div>
+            </div>
+            <div class="engraving-area">
+              🎯 Área para gravação: <span>12 cm x 6 cm</span>
+            </div>
+            <a href="https://wa.me/5567998681141?text=Olá! Gostaria de um orçamento para o Copo Térmico 473ml"
+              target="_blank" class="quote-btn">📲 Solicitar Orçamento</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== GARRAFAS TÉRMICAS ==================== -->
+    <section id="garrafas" class="section">
+      <h2 class="section-title">🧴 Garrafas Térmicas</h2>
+      <div class="products-grid">
+
+        <!-- Garrafa 450ml com infusor -->
+        <div class="product-card">
+          <div class="product-image">
+            <span class="product-badge">🍵 Com Infusor</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Garrafa Térmica 450ml com Infusor</h3>
+            <p class="product-description">Garrafa inox 450ml com parede dupla e infusor para chás. Conserva temperatura
+              quente ou fria.</p>
+            <div class="specs">
+              <div class="specs-title">📏 Especificações</div>
+              <div class="specs-grid">
+                <div class="spec-item"><span class="spec-label">Altura:</span><span class="spec-value">23,1 cm</span>
+                </div>
+                <div class="spec-item"><span class="spec-label">Largura:</span><span class="spec-value">6,5 cm</span>
+                </div>
+                <div class="spec-item"><span class="spec-label">Circunferência:</span><span class="spec-value">20,5
+                    cm</span></div>
+                <div class="spec-item"><span class="spec-label">Peso:</span><span class="spec-value">250g</span></div>
+              </div>
+            </div>
+            <div class="engraving-area">
+              🎯 Área para gravação: <span>17 cm x 6 cm</span>
+            </div>
+            <a href="https://wa.me/5567998681141?text=Olá! Gostaria de um orçamento para a Garrafa 450ml com Infusor"
+              target="_blank" class="quote-btn">📲 Solicitar Orçamento</a>
+          </div>
+        </div>
+
+        <!-- Garrafa 1 Litro -->
+        <div class="product-card">
+          <div class="product-image"></div>
+          <div class="product-info">
+            <h3 class="product-title">Garrafa Térmica 1 Litro</h3>
+            <p class="product-description">Garrafa de inox livre de BPA com capacidade de 1 litro. Alça para transporte.
+            </p>
+            <div class="specs">
+              <div class="specs-title">📏 Especificações</div>
+              <div class="specs-grid">
+                <div class="spec-item"><span class="spec-label">Altura:</span><span class="spec-value">30 cm</span>
+                </div>
+                <div class="spec-item"><span class="spec-label">Largura:</span><span class="spec-value">11,5 cm</span>
+                </div>
+                <div class="spec-item"><span class="spec-label">Circunferência:</span><span class="spec-value">29,2
+                    cm</span></div>
+                <div class="spec-item"><span class="spec-label">Peso:</span><span class="spec-value">606g</span></div>
+              </div>
+            </div>
+            <div class="engraving-area">
+              🎯 Área para gravação: <span>17 cm x 5 cm</span>
+            </div>
+            <a href="https://wa.me/5567998681141?text=Olá! Gostaria de um orçamento para a Garrafa 1 Litro"
+              target="_blank" class="quote-btn">📲 Solicitar Orçamento</a>
+          </div>
+        </div>
+
+        <!-- Garrafa 1.1L com infusor -->
+        <div class="product-card">
+          <div class="product-image">
+            <span class="product-badge">🍵 Infusor</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Garrafa Térmica 1,1 Litro</h3>
+            <p class="product-description">Garrafa em inox 316 com infusor de bebidas e alça de silicone acoplada na
+              tampa.</p>
+            <div class="specs">
+              <div class="specs-title">📏 Especificações</div>
+              <div class="specs-grid">
+                <div class="spec-item"><span class="spec-label">Altura:</span><span class="spec-value">30,7 cm</span>
+                </div>
+                <div class="spec-item"><span class="spec-label">Largura:</span><span class="spec-value">9 cm</span>
+                </div>
+                <div class="spec-item"><span class="spec-label">Circunferência:</span><span class="spec-value">28,2
+                    cm</span></div>
+                <div class="spec-item"><span class="spec-label">Peso:</span><span class="spec-value">520g</span></div>
+              </div>
+            </div>
+            <div class="engraving-area">
+              🎯 Área para gravação: <span>16 cm x 3 cm</span>
+            </div>
+            <a href="https://wa.me/5567998681141?text=Olá! Gostaria de um orçamento para a Garrafa 1.1 Litro"
+              target="_blank" class="quote-btn">📲 Solicitar Orçamento</a>
+          </div>
+        </div>
+
+        <!-- Garrafa Degradê 1L -->
+        <div class="product-card">
+          <div class="product-image">
+            <span class="product-badge">🌈 Degradê</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Garrafa Térmica 1L Degradê</h3>
+            <p class="product-description">Garrafa gradiente com infusor de chá, BPA Free. Cores: verde, lilás, azul e
+              roxa.</p>
+            <div class="engraving-area">
+              🎯 Área para gravação: <span>12 cm x 6 cm</span>
+            </div>
+            <a href="https://wa.me/5567998681141?text=Olá! Gostaria de um orçamento para a Garrafa Degradê 1L"
+              target="_blank" class="quote-btn">📲 Solicitar Orçamento</a>
+          </div>
+        </div>
+
+        <!-- Garrafa 2.5L com bomba -->
+        <div class="product-card">
+          <div class="product-image">
+            <span class="product-badge">🚰 Sistema Bomba</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Garrafa Térmica 2,5 Litros</h3>
+            <p class="product-description">Sistema de bombeamento - não precisa virar a garrafa. Base giratória.
+              Conserva água gelada por 12h+ ou quente por 8h+.</p>
+            <div class="specs">
+              <div class="specs-title">📏 Especificações</div>
+              <div class="specs-grid">
+                <div class="spec-item"><span class="spec-label">Capacidade:</span><span class="spec-value">2,5
+                    Litros</span></div>
+                <div class="spec-item"><span class="spec-label">Peso:</span><span class="spec-value">~1,5kg</span></div>
+                <div class="spec-item"><span class="spec-label">Material:</span><span class="spec-value">Aço
+                    Inoxidável</span></div>
+              </div>
+            </div>
+            <a href="https://wa.me/5567998681141?text=Olá! Gostaria de um orçamento para a Garrafa 2.5L com Bomba"
+              target="_blank" class="quote-btn">📲 Solicitar Orçamento</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CANECAS ==================== -->
+    <section id="canecas" class="section">
+      <h2 class="section-title">☕ Canecas Térmicas</h2>
+      <div class="products-grid">
+
+        <div class="product-card">
+          <div class="product-image">
+            <span class="product-badge">🔥 1,2 Litros</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Caneca Térmica 1,2 Litros</h3>
+            <p class="product-description">Caneca em inox 304 com parede dupla. Tampa acrílica rosqueável com acesso
+              para canudo. Acompanha canudo plástico.</p>
+            <div class="specs">
+              <div class="specs-title">📏 Especificações</div>
+              <div class="specs-grid">
+                <div class="spec-item"><span class="spec-label">Altura:</span><span class="spec-value">26,9 cm</span>
+                </div>
+                <div class="spec-item"><span class="spec-label">Largura:</span><span class="spec-value">14,9 cm</span>
+                </div>
+                <div class="spec-item"><span class="spec-label">Peso:</span><span class="spec-value">539g</span></div>
+              </div>
+            </div>
+            <div class="engraving-area">
+              🎯 Área para gravação: <span>12,5 cm x 4 cm</span>
+            </div>
+            <a href="https://wa.me/5567998681141?text=Olá! Gostaria de um orçamento para a Caneca 1.2L" target="_blank"
+              class="quote-btn">📲 Solicitar Orçamento</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image"></div>
+          <div class="product-info">
+            <h3 class="product-title">Caneca Térmica 350ml</h3>
+            <p class="product-description">Caneca de inox livre de BPA. Tampa acrílica com bocal e trava de segurança.
+            </p>
+            <div class="specs">
+              <div class="specs-title">📏 Especificações</div>
+              <div class="specs-grid">
+                <div class="spec-item"><span class="spec-label">Altura:</span><span class="spec-value">11,5 cm</span>
+                </div>
+                <div class="spec-item"><span class="spec-label">Largura:</span><span class="spec-value">12,2 cm (com
+                    alça)</span></div>
+                <div class="spec-item"><span class="spec-label">Peso:</span><span class="spec-value">200g</span></div>
+              </div>
+            </div>
+            <div class="engraving-area">
+              🎯 Área para gravação: <span>7 cm x 6 cm</span>
+            </div>
+            <a href="https://wa.me/5567998681141?text=Olá! Gostaria de um orçamento para a Caneca 350ml" target="_blank"
+              class="quote-btn">📲 Solicitar Orçamento</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== BRINDES CORPORATIVOS ==================== -->
+    <section id="brindes" class="section">
+      <h2 class="section-title">✒️ Brindes Corporativos</h2>
+      <div class="products-grid">
+
+        <div class="product-card">
+          <div class="product-image">
+            <span class="product-badge">Mínimo 50 peças</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Caneta Plástica Personalizada</h3>
+            <p class="product-description">Caneta plástica com carga esferográfica azul 1.0mm e acionamento por clique.
+            </p>
+            <div class="engraving-area">
+              🎯 Área para gravação: <span>3,9 cm x 0,7 cm</span>
+            </div>
+            <a href="https://wa.me/5567998681141?text=Olá! Gostaria de um orçamento para Canetas Personalizadas (mínimo 50 peças)"
+              target="_blank" class="quote-btn">📲 Solicitar Orçamento</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <span class="product-badge">🌿 Sustentável</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Caderno Ecológico com Caneta</h3>
+            <p class="product-description">Capa em casca de bambu, encadernação Wire-O, ~70 folhas pautadas. Acompanha
+              caneta em papelão.</p>
+            <div class="engraving-area">
+              🎯 Área para gravação: <span>13,5 cm x 6 cm</span>
+            </div>
+            <a href="https://wa.me/5567998681141?text=Olá! Gostaria de um orçamento para o Caderno Ecológico"
+              target="_blank" class="quote-btn">📲 Solicitar Orçamento</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image"></div>
+          <div class="product-info">
+            <h3 class="product-title">Agenda Wire-O 2026</h3>
+            <p class="product-description">Capa dura em Percalux, bolso plástico interno. Calendários 2025-2027, lista
+              de contatos e mapas.</p>
+            <div class="specs">
+              <div class="specs-title">📏 Especificações</div>
+              <div class="specs-grid">
+                <div class="spec-item"><span class="spec-label">Altura:</span><span class="spec-value">20 cm</span>
+                </div>
+                <div class="spec-item"><span class="spec-label">Largura:</span><span class="spec-value">16,5 cm</span>
+                </div>
+                <div class="spec-item"><span class="spec-label">Peso:</span><span class="spec-value">380g</span></div>
+              </div>
+            </div>
+            <div class="engraving-area">
+              🎯 Área para gravação: <span>11 cm x 11 cm</span>
+            </div>
+            <a href="https://wa.me/5567998681141?text=Olá! Gostaria de um orçamento para a Agenda 2026" target="_blank"
+              class="quote-btn">📲 Solicitar Orçamento</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image"></div>
+          <div class="product-info">
+            <h3 class="product-title">Necessaire Couro Sintético</h3>
+            <p class="product-description">Necessaire bidins com alça para transporte. Plaquinha frontal para
+              personalização.</p>
+            <div class="engraving-area">
+              🎯 Área para gravação: <span>3,3 cm x 4,3 cm</span>
+            </div>
+            <a href="https://wa.me/5567998681141?text=Olá! Gostaria de um orçamento para a Necessaire" target="_blank"
+              class="quote-btn">📲 Solicitar Orçamento</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image"></div>
+          <div class="product-info">
+            <h3 class="product-title">Estojo Metal - Caneta + Lapiseira</h3>
+            <p class="product-description">Conjunto sofisticado em estojo de metal com revestimento em espuma. Caneta
+              (carga azul 1.0mm) e lapiseira (grafite 0.7mm).</p>
+            <div class="engraving-area">
+              🎯 Área para gravação: <span>16 cm x 4 cm</span>
+            </div>
+            <a href="https://wa.me/5567998681141?text=Olá! Gostaria de um orçamento para o Estojo Metal" target="_blank"
+              class="quote-btn">📲 Solicitar Orçamento</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CHURRASCO ==================== -->
+    <section id="churrasco" class="section">
+      <h2 class="section-title">🥩 Kits para Churrasco</h2>
+      <div class="products-grid">
+
+        <div class="product-card">
+          <div class="product-image">
+            <span class="product-badge">🔥 17 Peças</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Kit Churrasco 17 Peças</h3>
+            <p class="product-description">Estojo de nylon com alça. Contém: pegador, garfo, espátula, faca, pincel, 4
+              espetos e 8 garfos pequenos.</p>
+            <div class="engraving-area">
+              🎯 Plaqueta metálica para gravação: <span>4,7 cm x 8,2 cm</span>
+            </div>
+            <a href="https://wa.me/5567998681141?text=Olá! Gostaria de um orçamento para o Kit Churrasco 17 peças"
+              target="_blank" class="quote-btn">📲 Solicitar Orçamento</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image"></div>
+          <div class="product-info">
+            <h3 class="product-title">Kit Churrasco 4 Peças</h3>
+            <p class="product-description">Estojo de nylon com alça. Pegador, garfo, espátula e faca em inox. Proteções
+              plásticas inclusas.</p>
+            <div class="engraving-area">
+              🎯 Plaqueta para gravação: <span>4,7 cm x 8,2 cm</span>
+            </div>
+            <a href="https://wa.me/5567998681141?text=Olá! Gostaria de um orçamento para o Kit Churrasco 4 peças"
+              target="_blank" class="quote-btn">📲 Solicitar Orçamento</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== DIVERSOS ==================== -->
+    <section id="diversos" class="section">
+      <h2 class="section-title">🔧 Itens Diversos</h2>
+      <div class="products-grid">
+
+        <div class="product-card">
+          <div class="product-image">
+            <span class="product-badge">🔑 2 em 1</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Chaveiro Abridor de Garrafa e Lata</h3>
+            <p class="product-description">Chaveiro multifuncional em metal. Abridor de garrafas e latinhas.</p>
+            <div class="engraving-area">
+              🎯 Área para gravação: <span>1 cm x 5 cm</span>
+            </div>
+            <a href="https://wa.me/5567998681141?text=Olá! Gostaria de um orçamento para o Chaveiro Abridor"
+              target="_blank" class="quote-btn">📲 Solicitar Orçamento</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image"></div>
+          <div class="product-info">
+            <h3 class="product-title">Caneta Metal Touchscreen</h3>
+            <p class="product-description">Caneta elegante com ponta touchscreen para usar em dispositivos eletrônicos.
+              Carga azul 1.0mm.</p>
+            <div class="engraving-area">
+              🎯 Área para gravação: <span>4 cm x 0,5 cm</span>
+            </div>
+            <a href="https://wa.me/5567998681141?text=Olá! Gostaria de um orçamento para a Caneta Touch" target="_blank"
+              class="quote-btn">📲 Solicitar Orçamento</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image"></div>
+          <div class="product-info">
+            <h3 class="product-title">Canivete Cabo de Madeira</h3>
+            <p class="product-description">Lâmina inox 440 de 6,5 cm, trava de segurança Liner Lock, clipe para fixação
+              no bolso.</p>
+            <div class="specs">
+              <div class="specs-title">📏 Especificações</div>
+              <div class="specs-grid">
+                <div class="spec-item"><span class="spec-label">Aberto:</span><span class="spec-value">18,5 cm</span>
+                </div>
+                <div class="spec-item"><span class="spec-label">Fechado:</span><span class="spec-value">10,5 cm</span>
+                </div>
+                <div class="spec-item"><span class="spec-label">Lâmina:</span><span class="spec-value">6,5 cm</span>
+                </div>
+                <div class="spec-item"><span class="spec-label">Peso:</span><span class="spec-value">126g</span></div>
+              </div>
+            </div>
+            <a href="https://wa.me/5567998681141?text=Olá! Gostaria de um orçamento para o Canivete" target="_blank"
+              class="quote-btn">📲 Solicitar Orçamento</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image"></div>
+          <div class="product-info">
+            <h3 class="product-title">Tábua de Corte 40x30cm</h3>
+            <p class="product-description">Tábua com canaleta e acesso para gancho.</p>
+            <div class="engraving-area">
+              🎯 Área para gravação: <span>33 cm x 25 cm</span>
+            </div>
+            <a href="https://wa.me/5567998681141?text=Olá! Gostaria de um orçamento para a Tábua de Corte"
+              target="_blank" class="quote-btn">📲 Solicitar Orçamento</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="catalog-footer">
+    <p style="margin-bottom: 1rem;">📞 Entre em contato para orçamentos personalizados</p>
+    <a href="https://wa.me/5567998681141" target="_blank" class="whatsapp-btn">
+      💬 (67) 99868-1141 - Fale conosco no WhatsApp
+    </a>
+    <p style="margin-top: 1.5rem; font-size: 0.75rem; color: #6b7280;">
+      Zanini Laser Ltda | CNPJ: 43.477.525/0001-25<br>
+      Rua Professor Mauro Procópio da Silva, 939 - Itapoã, Ivinhema-MS | CEP: 79.740-000
+    </p>
+  </div>
+</body>
+
+</html>
